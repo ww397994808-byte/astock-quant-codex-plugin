@@ -1,0 +1,20 @@
+{
+  "name": "astock-quant",
+  "interface": {
+    "displayName": "A股量化插件"
+  },
+  "plugins": [
+    {
+      "name": "astock-quant-coach",
+      "source": {
+        "source": "local",
+        "path": "./plugins/astock-quant-coach"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
