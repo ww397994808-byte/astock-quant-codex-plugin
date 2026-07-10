@@ -1,0 +1,8 @@
+{
+  "benchmark": "boll_1h_intraday",
+  "total_score": 44,
+  "gaps": [
+    "boll_1h_intraday: Intake 缺少明确标的",
+    "boll_1h_intraday: RiskControl 不足"
+  ]
+}

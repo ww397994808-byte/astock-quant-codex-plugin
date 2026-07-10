@@ -1,0 +1,7 @@
+dry_run: true
+enable_real_trade: false
+account_id: ""
+mini_qmt_path: ""
+session_id: 123456
+emergency_stop: false
+

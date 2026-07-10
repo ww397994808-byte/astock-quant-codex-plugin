@@ -1,0 +1,10 @@
+[project]
+name = "ai-astock-quant-system"
+version = "0.1.0"
+description = "A股 AI 量化研究、回测、审计、模拟盘和 QMT 安全交易骨架"
+requires-python = ">=3.9"
+dependencies = ["PyYAML>=6.0"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

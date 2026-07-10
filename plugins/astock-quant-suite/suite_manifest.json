@@ -1,0 +1,27 @@
+{
+  "suite_name": "astock-quant-suite",
+  "runtime": "runtime/AI_AStock_Quant_System",
+  "skill": "skills/astock-quant-research/SKILL.md",
+  "agent_metadata": "skills/astock-quant-research/agents/openai.yaml",
+  "templates": [
+    "templates/config",
+    "templates/strategies",
+    "templates/backtest_templates"
+  ],
+  "guarded_scripts": [
+    "scripts/install_runtime.py",
+    "scripts/doctor.py",
+    "scripts/run_astock_cli.py"
+  ],
+  "private_files_excluded": [
+    "runtime/AI_AStock_Quant_System/config/qmt_config.yaml",
+    "runtime/AI_AStock_Quant_System/reports",
+    "runtime/AI_AStock_Quant_System/data_lake",
+    "runtime/AI_AStock_Quant_System/handoff_packages"
+  ],
+  "default_safety": {
+    "dry_run": true,
+    "enable_real_trade": false,
+    "live_trade_permission": false
+  }
+}

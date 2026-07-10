@@ -1,0 +1,8 @@
+{
+  "benchmark": "dividend_portfolio",
+  "total_score": 44,
+  "gaps": [
+    "dividend_portfolio: Intake 缺少明确标的",
+    "dividend_portfolio: RiskControl 不足"
+  ]
+}

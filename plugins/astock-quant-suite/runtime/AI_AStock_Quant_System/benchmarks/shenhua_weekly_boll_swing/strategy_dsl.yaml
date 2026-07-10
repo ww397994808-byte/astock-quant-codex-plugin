@@ -1,0 +1,39 @@
+market: A股
+symbols:
+- 601088.SH
+timeframe: 1w
+adjust: point_in_time_qfq
+pattern: swing
+entry:
+  type: DrawdownEntry
+  params:
+    drawdown_threshold:
+    - 0.08
+    - 0.12
+exit:
+- type: BollMiddleExit
+- type: FixedStopLossExit
+  params:
+    stop_loss:
+    - 0.06
+    - 0.08
+    - 0.1
+sizing:
+  type: FixedPercentSizing
+  params:
+    percent:
+    - 0.1
+    - 0.2
+    - 0.3
+objective:
+  primary: calmar
+  target_annual_return:
+  - 0.15
+  - 0.25
+  min_annual_return: null
+  max_drawdown: 0.15
+constraints:
+  min_trades: 10
+  max_experiments: 300
+  min_holding_period: 3 bars
+  trade_count_penalty: true

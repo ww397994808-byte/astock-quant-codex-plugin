@@ -1,0 +1,4 @@
+interface:
+  display_name: "A股量化研究"
+  short_description: "Beginner A-share research, audit, paper, and QMT gates"
+  default_prompt: "Use $astock-quant-research to turn my A股策略想法 into an audited research-to-paper workflow."

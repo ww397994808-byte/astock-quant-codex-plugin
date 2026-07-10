@@ -1,0 +1,7 @@
+{
+  "benchmark": "bank_etf_rotation",
+  "total_score": 44,
+  "gaps": [
+    "bank_etf_rotation: RiskControl 不足"
+  ]
+}

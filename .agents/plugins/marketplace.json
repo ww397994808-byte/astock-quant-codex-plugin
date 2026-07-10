@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "astock-quant-coach",
+      "name": "astock-quant-suite",
       "source": {
         "source": "local",
-        "path": "./plugins/astock-quant-coach"
+        "path": "./plugins/astock-quant-suite"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+config/qmt_config.yaml
+logs/
+reports/live/
+benchmarks/test_benchmark_tmp/
+secrets/
+*.db

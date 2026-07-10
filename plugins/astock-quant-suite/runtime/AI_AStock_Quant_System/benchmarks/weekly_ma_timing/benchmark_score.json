@@ -1,0 +1,8 @@
+{
+  "benchmark": "weekly_ma_timing",
+  "total_score": 44,
+  "gaps": [
+    "weekly_ma_timing: Intake 缺少明确标的",
+    "weekly_ma_timing: RiskControl 不足"
+  ]
+}

@@ -1,0 +1,11 @@
+boards:
+  main:
+    limit_pct: 0.10
+  star:
+    limit_pct: 0.20
+  chi_next:
+    limit_pct: 0.20
+st_limit_pct: 0.05
+lot_size: 100
+allow_odd_lot_sell: true
+

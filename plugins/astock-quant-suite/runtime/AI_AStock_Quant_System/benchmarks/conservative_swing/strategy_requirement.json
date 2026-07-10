@@ -1,0 +1,38 @@
+{
+  "original_idea": "年化15%左右 回撤尽量低 波段策略",
+  "market": "A股",
+  "symbols": [],
+  "asset_type": "stock",
+  "timeframe": null,
+  "strategy_pattern": "swing",
+  "archetype": "swing",
+  "entry_logic": "回撤/跌多了买入",
+  "exit_logic": null,
+  "sizing_logic": "固定比例仓位",
+  "risk_control": {},
+  "holding_period": null,
+  "rebalance_frequency": null,
+  "data_adjustment": "point_in_time_qfq",
+  "objective": {
+    "primary": "calmar",
+    "target_annual_return": [
+      0.15,
+      0.25
+    ],
+    "min_annual_return": 0.15
+  },
+  "constraints": {
+    "min_trades": 10,
+    "max_experiments": 300
+  },
+  "unanswered_questions": [
+    "你想研究哪只股票/ETF/一组股票？例如：中国神华、红利ETF、煤炭银行电力。",
+    "你希望看日线、1小时、10分钟，还是周线？交易频率想高一点还是低一点？",
+    "什么情况下卖？涨回均线/中轨、目标收益、止损、移动止盈，还是持有固定时间？",
+    "你能接受最大回撤多少？是否需要止损、单日亏损限制，是否允许连续加仓？"
+  ],
+  "completeness_score": 50,
+  "readiness_for_research": false,
+  "qmt_safety_note": "",
+  "live_intent": null
+}

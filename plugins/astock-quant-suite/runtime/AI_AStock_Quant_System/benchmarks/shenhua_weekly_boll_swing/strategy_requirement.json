@@ -1,0 +1,37 @@
+{
+  "original_idea": "中国神华 周线 跌多了买 涨回去卖 控制回撤 不要太频繁交易",
+  "market": "A股",
+  "symbols": [
+    "601088.SH"
+  ],
+  "asset_type": "stock",
+  "timeframe": "1w",
+  "strategy_pattern": "swing",
+  "archetype": "swing",
+  "entry_logic": "回撤/跌多了买入",
+  "exit_logic": "涨回均值/中轨卖出",
+  "sizing_logic": null,
+  "risk_control": {
+    "max_drawdown": 0.15
+  },
+  "holding_period": null,
+  "rebalance_frequency": null,
+  "data_adjustment": "point_in_time_qfq",
+  "objective": {
+    "primary": "calmar",
+    "trade_frequency": "low"
+  },
+  "constraints": {
+    "min_trades": 10,
+    "max_experiments": 300,
+    "min_holding_period": "3 bars",
+    "trade_count_penalty": true
+  },
+  "unanswered_questions": [
+    "每次买多少？固定金额、固定比例，还是分批加仓？单只股票最大仓位是多少？"
+  ],
+  "completeness_score": 90,
+  "readiness_for_research": true,
+  "qmt_safety_note": "",
+  "live_intent": null
+}

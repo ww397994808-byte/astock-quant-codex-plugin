@@ -1,74 +1,134 @@
-# A股量化研究教练 Codex 插件
+# A股量化研究套件 Codex 插件
 
-这是一个本地可安装、可通过 GitHub 分发的 Codex 插件。它把 Codex 约束为中文 A 股量化研究教练，带用户按标准流程完成：
+这是一个可通过 GitHub marketplace 分发的完整 Codex 插件包。它不只是 Skill 提示词，而是把中文教学 Skill、agent 元数据、可执行量化 runtime、硬约束代码、固定模板、安装脚本、体检脚本和测试一起打包。
+
+标准流程：
 
 ```text
 学习入门 -> 策略想法整理 -> 数据获取 -> 严格回测 -> 审计 -> 阶段裁判 -> 模拟盘 -> QMT 只读 -> 实盘前检查 -> 真实运行人工确认
 ```
 
-## 适合谁
+## 包内包含
 
-- 完全不懂量化、需要中文引导的小白。
-- 想按 A 股交易规则做研究、回测和模拟盘的人。
-- 想避免未来函数、过拟合、复权泄漏和交易规则错误的人。
-- 想把研究流程推进到 QMT 实盘前检查，但不希望 AI 绕过风控的人。
+- `plugins/astock-quant-suite/.codex-plugin/plugin.json`
+- `plugins/astock-quant-suite/skills/astock-quant-research/`
+- `plugins/astock-quant-suite/skills/astock-quant-research/agents/openai.yaml`
+- `plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/`
+- `plugins/astock-quant-suite/templates/`
+- `plugins/astock-quant-suite/scripts/install_runtime.py`
+- `plugins/astock-quant-suite/scripts/doctor.py`
+- `plugins/astock-quant-suite/scripts/run_astock_cli.py`
+- `plugins/astock-quant-suite/docs/HARD_CONSTRAINTS.md`
 
-## 安装方式
+## 安装
 
-在 Codex 中让它执行：
+添加 marketplace：
 
-```powershell
+```bash
 codex plugin marketplace add https://github.com/ww397994808-byte/astock-quant-codex-plugin.git
 ```
 
-然后重启 Codex，打开插件页面，在 `A股量化插件` 中安装：
+安装插件：
 
-```text
-A股量化研究教练
+```bash
+codex plugin add astock-quant-suite@astock-quant
 ```
 
-## 使用方式
-
-安装后新开一个 Codex 线程，输入：
+新开 Codex 线程后使用：
 
 ```text
-使用 A股量化研究教练。我是小白，想研究中国神华周线布林低吸策略，请按严格教学模式带我走完整流程。
+使用 A股量化研究套件，先帮我做本地体检。
 ```
 
-也可以输入：
+## 本地 runtime 安装
+
+插件内置 runtime 可以直接作为只读套件参考，也可以复制到用户本地目录运行：
+
+```bash
+python3 plugins/astock-quant-suite/scripts/install_runtime.py --init-qmt-config
+```
+
+默认目标：
 
 ```text
-使用 astock-quant-coach，带我从一个 A 股策略想法开始，按标准流程完成研究、回测、审计、模拟盘和实盘前检查。
+~/.codex/astock-quant-suite/AI_AStock_Quant_System
 ```
 
-## 插件能力
+安装脚本不会复制真实 `config/qmt_config.yaml`，只会通过 runtime 的 `qmt-config-init` 创建安全配置：
 
-- 中文输出，不向小白直接展示英文状态码。
-- 默认严格教学模式，防止用户无限研究、无限调参。
-- 支持研究员模式，但继续研究必须限定目的。
-- 引导用户先准备数据，再回测。
-- 强制强调 A 股规则：T+1、涨跌停、停牌、100 股、费用、成交时点。
-- 强制检查未来函数、复权泄漏、过拟合和回测假设漂移。
-- 在每个阶段输出“是否进入下一阶段”的明确判断。
-- 真实实盘阶段只允许人工确认和安全门控，不允许 AI 静默下单。
-
-## 重要风险声明
-
-本插件是量化研究学习和流程辅助工具，不构成投资建议，不承诺收益。回测、模拟盘和实盘结果均由用户自行承担风险。
-
-真实交易必须由用户人工确认，并遵守券商、交易所、数据源和当地法律法规要求。
-
-## 仓库结构
-
-```text
-.agents/plugins/marketplace.json
-plugins/astock-quant-coach/
-  .codex-plugin/plugin.json
-  skills/astock-quant-coach/
-    SKILL.md
-    references/
-      data-acquisition.md
-      strict-backtest.md
-      phase-controller.md
-      live-trading.md
+```yaml
+dry_run: true
+enable_real_trade: false
 ```
+
+## 体检
+
+插件包体检：
+
+```bash
+python3 plugins/astock-quant-suite/scripts/doctor.py
+```
+
+runtime 体检：
+
+```bash
+python3 plugins/astock-quant-suite/scripts/run_astock_cli.py -- student-doctor
+python3 plugins/astock-quant-suite/scripts/run_astock_cli.py -- student-product-audit
+```
+
+## 使用示例
+
+从一个策略想法开始：
+
+```bash
+python3 plugins/astock-quant-suite/scripts/run_astock_cli.py -- \
+  student-course-path \
+  --idea "中国神华周线布林低吸，控制回撤" \
+  --session-id demo
+```
+
+检查策略代码未来函数：
+
+```bash
+python3 plugins/astock-quant-suite/scripts/run_astock_cli.py -- \
+  student-future-leak-precheck \
+  --file path/to/strategy.py
+```
+
+完整新手 workflow：
+
+```bash
+python3 plugins/astock-quant-suite/scripts/run_astock_cli.py -- \
+  student-workflow \
+  --idea "中国神华周线布林低吸，控制回撤" \
+  --timeframe 1d \
+  --adjust point_in_time_qfq \
+  --auto-refine \
+  --session-id demo
+```
+
+## 硬边界
+
+硬约束必须由 runtime 代码执行，Skill 只负责引导 Codex 调用正确入口。
+
+- 不允许未 intake / 未 backtest plan 的 raw idea 直接回测。
+- 不允许未来函数、复权泄漏、同 K 线信号成交、负向 shift、居中窗口通过审计。
+- 不允许审计未通过进入模拟盘。
+- 不允许模拟盘观察不足进入 QMT 只读。
+- 不允许 QMT 配置不完整或不安全时运行 QMT 只读。
+- 不允许跳过 pretrade package / runbook / pretrade check 讨论真实委托。
+- 安装插件不会开启实盘，`enable_real_trade=false` 是默认边界。
+
+见 `plugins/astock-quant-suite/docs/HARD_CONSTRAINTS.md`。
+
+## 不打包的内容
+
+- 用户真实 QMT 配置
+- 账户号、MiniQMT 本地路径
+- 运行报告和 ledgers
+- 大型下载行情数据
+- 真实交易确认状态
+
+## 风险声明
+
+本插件是量化研究学习和流程辅助工具，不构成投资建议，不承诺收益。回测、模拟盘和实盘结果均由用户自行承担风险。真实交易必须由用户人工确认，并遵守券商、交易所、数据源和当地法律法规要求。

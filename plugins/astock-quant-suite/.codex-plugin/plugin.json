@@ -1,0 +1,38 @@
+{
+  "name": "astock-quant-suite",
+  "version": "0.2.0+codex.20260709-suite",
+  "description": "Complete Chinese A-share quant research suite for Codex, including skill, agent metadata, guarded runtime code, fixed templates, audits, paper observation, QMT readonly gates, and pretrade workflows.",
+  "author": {
+    "name": "A股量化研究套件"
+  },
+  "repository": "https://github.com/ww397994808-byte/astock-quant-codex-plugin",
+  "license": "Proprietary",
+  "keywords": [
+    "A股",
+    "量化研究",
+    "回测",
+    "QMT",
+    "风控",
+    "Codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "A股量化研究套件",
+    "shortDescription": "完整 A 股量化研究、回测、审计、模拟盘、QMT 只读和实盘前门控套件。",
+    "longDescription": "A股量化研究套件把 Codex Skill、agent 元数据、可执行 AI_AStock_Quant_System runtime、固定策略/回测模板、安装脚本、体检脚本、测试和安全门控打成一个插件包。真实交易默认关闭，所有 QMT 与实盘前流程必须经过 runtime 的审计、模拟盘、只读检查、盘前检查和人工确认门槛。",
+    "developerName": "A股量化研究套件",
+    "category": "Education & Research",
+    "capabilities": [
+      "skills",
+      "bundled-runtime",
+      "guarded-scripts",
+      "templates",
+      "tests"
+    ],
+    "defaultPrompt": [
+      "使用 A股量化研究套件，先帮我做本地体检。",
+      "带我从一个 A 股策略想法开始走严格研究流程。",
+      "检查我的策略代码有没有未来函数。"
+    ]
+  }
+}

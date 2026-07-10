@@ -1,0 +1,8 @@
+max_jobs_per_round: 100
+max_total_jobs: 1000
+max_runtime_seconds: 1800
+parallel_workers: 1
+enable_random_search: true
+enable_cross_timeframe: true
+enable_cross_symbol: true
+enable_regime_split: true

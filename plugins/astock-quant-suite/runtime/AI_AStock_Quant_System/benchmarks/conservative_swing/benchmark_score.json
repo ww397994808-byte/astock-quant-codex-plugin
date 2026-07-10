@@ -1,0 +1,8 @@
+{
+  "benchmark": "conservative_swing",
+  "total_score": 44,
+  "gaps": [
+    "conservative_swing: Intake 缺少明确标的",
+    "conservative_swing: RiskControl 不足"
+  ]
+}

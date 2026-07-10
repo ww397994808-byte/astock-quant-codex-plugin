@@ -1,0 +1,21 @@
+.DS_Store
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Runtime-generated evidence and local state.
+plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/reports/*
+!plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/reports/.gitkeep
+plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/handoff_packages/*
+!plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/handoff_packages/.gitkeep
+plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/data_lake/*
+!plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/data_lake/.gitkeep
+plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/config/qmt_config.yaml
+plugins/astock-quant-suite/skills/astock-quant-research/project_root.txt
+
+# Large downloaded market data should be fetched locally, not committed by default.
+plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/data/ah_downloaded/
+plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/data/raw/*
+!plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/data/raw/.gitkeep
+plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/data/processed/*
+!plugins/astock-quant-suite/runtime/AI_AStock_Quant_System/data/processed/.gitkeep

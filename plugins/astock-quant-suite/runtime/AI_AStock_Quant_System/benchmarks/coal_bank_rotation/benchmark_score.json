@@ -1,0 +1,7 @@
+{
+  "benchmark": "coal_bank_rotation",
+  "total_score": 44,
+  "gaps": [
+    "coal_bank_rotation: RiskControl 不足"
+  ]
+}

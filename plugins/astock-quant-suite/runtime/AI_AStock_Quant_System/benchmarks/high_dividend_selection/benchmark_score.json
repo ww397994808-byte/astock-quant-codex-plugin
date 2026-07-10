@@ -1,0 +1,8 @@
+{
+  "benchmark": "high_dividend_selection",
+  "total_score": 44,
+  "gaps": [
+    "high_dividend_selection: Intake 缺少明确标的",
+    "high_dividend_selection: RiskControl 不足"
+  ]
+}

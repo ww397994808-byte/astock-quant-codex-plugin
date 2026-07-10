@@ -1,0 +1,7 @@
+{
+  "benchmark": "shenhua_drawdown_rebound",
+  "total_score": 44,
+  "gaps": [
+    "shenhua_drawdown_rebound: RiskControl 不足"
+  ]
+}

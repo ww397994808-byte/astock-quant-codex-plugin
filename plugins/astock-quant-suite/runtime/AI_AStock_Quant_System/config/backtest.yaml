@@ -1,0 +1,4 @@
+initial_cash: 1000000
+execution_price: next_open
+target_percent: 0.5
+
